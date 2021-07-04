@@ -1,20 +1,17 @@
 node_modules
 
-/client/build
+/frontend/build
 
 .DS_Store
 
 /frontend/.env.local
-/frontend/.env.development.local
+/frontend/.env.development
 /frontend/.env.test.local
-/frontend/.env.production.local
-
-
+/frontend/.env.production
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-node_modules
-env
+/backend/config/config.env
 *.cer

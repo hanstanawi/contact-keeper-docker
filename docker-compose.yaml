@@ -1,11 +1,28 @@
 version: '3.8'
 services: 
-  contact-keeper-backend:
+  backend:
     build:
-      context: ./
+      context: ./backend
       dockerfile: Dockerfile
     container_name: contact-keeper-backend
     ports:
       - '5000:5000'
     env_file:
       - ./config/config.env
+    volumes: 
+      - ./backend:/app/backend
+      - /app/node_modules
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '5000:5000'
+    depends_on: 
+      - backend
+    volumes:
+      - ./frontend:/app/frontend
+      - /app/node_modules
+    stdin_open: true
+    tty: true
+    
