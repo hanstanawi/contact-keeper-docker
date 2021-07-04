@@ -72,7 +72,7 @@ We can also run frontend and backend code as individual containers or run locall
       ```
 
        OR if we want to change the container name or add other configuration, we can run
-       ```bsh
+       ```bash
        docker run --name <container-name> \
         -p 3000:3000 \
         -d \
@@ -84,31 +84,75 @@ We can also run frontend and backend code as individual containers or run locall
 
     The backend is a REST API with that provides the frontend the data from the database. It provides multiple endpoints that are available to be called by the frontend using HTTP request or AJAX calls. It is built using Node.js environment and Express framework. The backend is wrapped as a container using Dockerfile to be built as an image which is going to be deployed to the server (AWS EC2).
 
-    To run the backend server in development mode:
+    - To run the backend server in development mode locally:
 
-    Make sure Node.js v.14 or higher is installed on our machine
+      Make sure Node.js v.14 or higher is installed on our machine
 
-    ```bash
-    cd backend
-    ```
+      ```bash
+      cd backend
+      ```
 
-    Install dependencies
+      Install dependencies
 
-    ```bash
-    npm install
-    ```
+      ```bash
+      npm install
+      ```
 
-    Run the server in development mode (with hot reload)
+      Run the server in development mode (with hot reload)
 
-    ```bash
-    npm run server
-    ```
+      ```bash
+      npm run server
+      ```
 
-    Run the server without hot reload
+      Run the server without hot reload
 
-    ```bash
-    npm start
-    ```
+      ```bash
+      npm start
+      ```
+    
+    - To run the backend app on a Docker container:
+      
+      Make sure Docker is installed on our local machine.
+
+      Build the image:
+
+      ```bash
+      cd backend
+      ```
+
+      ```bash
+      sh build-image.sh
+      ```
+
+      OR if we want to change the image name or add other configuration, we can run
+
+      ```bash
+      docker build -f Dockerfile.dev \
+        -t <image-name>:<tag> \
+        .
+
+      ```
+      We can also pull the built image from 
+      [Docker Hub](https://hub.docker.com/repository/docker/hanstanawi/contact-keeper-backend)
+
+      ```bash
+      docker pull hanstanawi/contact-keeper-backend
+      ```
+
+      After the image is built, we can run the container
+      ```bash
+      sh run-container.sh
+      ```
+
+       OR if we want to change the container name or add other configuration, we can run
+       ```bash
+       docker run --name <container-name> \
+        -p 5000:5000 \
+        -d \
+        --env-file ./config/config.env \
+        <image-name> 
+       ```
+
 
 - **Database**
 
