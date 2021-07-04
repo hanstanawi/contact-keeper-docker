@@ -104,7 +104,8 @@ There are two options to run the container on the remote machine
 2. Build the image locally
 
     ```bash
-    docker build -t contact-keeper-node:latest .
+    docker build -f Dockerfile.prod \ 
+        -t contact-keeper-node:latest .
     ```
 
     Small note: make sure to add `--build linux/amd64` if we build the image using Mac M1 processor, so the EC2 instance can run it.
@@ -112,8 +113,9 @@ There are two options to run the container on the remote machine
     Rename the image to match the repository name in Docker Hub
 
     ```bash
-    docker tag contact-keeper-node hanstanawi/contact-keeper-backend:latestPush the local image to Docker hub
+    docker tag contact-keeper-node hanstanawi/contact-keeper-backend:latest
     ```
+
 
 3. Push the local image to Docker hub
 

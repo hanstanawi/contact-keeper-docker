@@ -4,7 +4,6 @@ node_modules
 
 .DS_Store
 
-/frontend/.env
 /frontend/.env.local
 /frontend/.env.development
 /frontend/.env.test.local
