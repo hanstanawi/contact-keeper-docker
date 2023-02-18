@@ -5,6 +5,10 @@
   "main": "server.js",
   "author": "Hans Tanawi",
   "license": "MIT",
+  "engines": {
+    "node": ">=16.x <=17.x",
+    "yarn": "1.22.19"
+  },
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
