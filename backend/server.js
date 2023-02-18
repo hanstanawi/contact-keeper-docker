@@ -26,7 +26,7 @@ app.use(helmet());
 // Define Routes
 app.get('/', (req, res, next) => {
   res.send('Welcome to the Contact Keeper API');
-})
+});
 app.use('/api/users', usersRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/contacts', contactsRoutes);
@@ -39,7 +39,7 @@ app.use('/api/contacts', contactsRoutes);
 //   })
 // }
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3333;
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
